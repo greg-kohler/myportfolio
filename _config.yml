@@ -36,6 +36,8 @@ plugins:
   - jekyll-feed
 include:
   - "*.md"
+  - ".html"
+
 
 
 # Exclude from processing.
