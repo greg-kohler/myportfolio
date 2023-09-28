@@ -1,9 +1,7 @@
 ---
 layout: master
-title: Index
+title: Home
 ---
-
-This is my new content
 
 <div class="container mt-5">
     <div class="row">
