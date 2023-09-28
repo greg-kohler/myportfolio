@@ -1,15 +1,45 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2757
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+---
+layout: master
+title: Index
+---
 
-\f0\fs24 \cf0 ---\
-layout: master\
-title: Home\
----\
-Welcome to My Website\
-\
-Feel free to explore our content.\
-}
+<div class="container mt-5">
+    <div class="row">
+        <!-- Image on the Left -->
+        <div class="col-lg-6">
+            <img src="https://i.pinimg.com/originals/58/db/86/58db86530c4ed7af2cc2408d19542dec.png" class="img-fluid" alt="Large Image">
+        </div>
+
+        <!-- Information on the Right -->
+        <div class="col-lg-6">
+            <div class="container">
+                <div id="typing-container"></div>
+
+                <script>
+                    document.addEventListener('DOMContentLoaded', function() {
+                        var text = "Hello, my name is Greg Kohler";
+                        var container = document.getElementById('typing-container');
+            
+                        function typeText(index) {
+                            if(index < text.length) {
+                                container.innerHTML += text.charAt(index);
+                                index++;
+                                setTimeout(function() { typeText(index) }, 100); // Adjust the timeout to control typing speed
+                            } else {
+                    // Show the body text once typing is finished
+                                var bodyText = document.getElementById('body-text');
+                                bodyText.style.display = 'block';
+                            }
+                        }
+            
+                        typeText(0);
+                    });
+                </script>
+                <div id="body-text">
+                I am a student at the University of Minnesota studying for my Masters in Geographic Information Sciences.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
