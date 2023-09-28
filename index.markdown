@@ -3,6 +3,8 @@ layout: master
 title: Index
 ---
 
+This is my new content
+
 <div class="container mt-5">
     <div class="row">
         <!-- Image on the Left -->
