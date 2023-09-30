@@ -54,9 +54,6 @@
             /* Add some content here */
             padding: 20px;
         }
-        .navbar.shrink {
-        	padding: 10px 20px;
-        }
         .navbar {
         	background-color: black;
         	padding: 20px;
@@ -72,7 +69,7 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav id="navbar" class="navbar navbar-dark navbar-expand-lg fixed-left" style="background-color: #2A4D14; position: fixed; top: 0; width: 100%; padding: 20px;">
+    <nav id="navbar" class="navbar navbar-dark navbar-expand-lg fixed-left" style="background-color: #2A4D14; position: fixed; top: 0; width: 100%; padding: 35px;">
         <a class="navbar-brand" href="#">Greg Kohler</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -121,11 +118,11 @@
     window.onscroll = function() {scrollFunction()};
 
 	function scrollFunction() {
-	  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-	    document.getElementById("navbar").style.padding = "30px 10px";
+	  if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 50) {
+	    document.getElementById("navbar").style.padding = "35px 10px";
 	    document.getElementById("logo").style.fontSize = "25px";
 	  } else {
-	    document.getElementById("navbar").style.padding = "30px 10px";
+	    document.getElementById("navbar").style.padding = "35px 10px";
 	    document.getElementById("logo").style.fontSize = "35px";
 	  }
 	}
