@@ -121,9 +121,19 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-        document.getElementById('navMenu').addEventListener('click', function() {
-            document.getElementById('navbar').classList.toggle('navbar-expanded');
-        });
+	document.addEventListener('DOMContentLoaded', function() {
+    var navbar = document.querySelector('.navbar');
+    var mainContent = document.querySelector('main');
+
+    document.getElementById('navMenu').addEventListener('click', function() {
+        if (navbar.classList.contains('expanded')) {
+            mainContent.style.marginTop = '70px'; // Adjust this value as needed
+        } else {
+            mainContent.style.marginTop = '0';
+        }
+    });
+});
+
     </script>
 
 </body>
