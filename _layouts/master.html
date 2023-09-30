@@ -5,7 +5,13 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="https://github.com/kohle147/portfolio/blob/main/styles.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Greg Kohler</title>
+    <title>        
+	{% if page.title %}
+            {{ page.title }}
+        {% else %}
+            Greg Kohler
+        {% endif %}
+    </title>
     <style>
         #typing-container {
             font-size: 35px; /* Adjust the font size here */
