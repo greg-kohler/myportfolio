@@ -61,6 +61,14 @@
         	position: fixed;
             	top: 0;
         }
+        .main-content {
+            margin-top: 100px; /* Set an initial margin */
+            transition: margin 1s; /* Add a transition for smooth animation */
+        }
+
+        .navbar-expanded .main-content {
+            margin-top: 200px; /* Adjusted margin when navbar expands */
+        }
         
             
     </style>
@@ -95,7 +103,7 @@
     </nav>
 
     <!-- Main Content -->
-	<main>
+	<main class="main-content">
 		{{content}}
 	</main>
 <footer>
@@ -113,13 +121,10 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-    	document.getElementById('navMenu').addEventListener('click', function() {
-        	var mainContent = document.querySelector('main');
-        	if (mainContent) {
-            	mainContent.style.marginTop = (document.getElementById('navbar').offsetHeight + 20) + 'px';
-        	}
-    	});
-</script>
+        document.getElementById('navMenu').addEventListener('click', function() {
+            document.getElementById('navbar').classList.toggle('navbar-expanded');
+        });
+    </script>
 
 </body>
 
