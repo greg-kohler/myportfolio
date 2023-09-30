@@ -3,43 +3,122 @@ layout: master
 Title: Home - Greg Kohler
 ---
 
-    <!-- Main Content -->
-<div class="container mt-5" style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-    <div class="row">
-        <!-- Image on the Left -->
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: row;
+  }
+  #left-column {
+    width: 50%;
+    padding: 20px;
+    text-align: right;
+  }
+  #right-column {
+    width: 50%;
+    padding: 20px;
+    text-align: left;
+  }
+  #greeting {
+    font-size: 24px;
+  }
+  #info {
+    display: none;
+    font-size: 18px;
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  #image {
+    display: none;
+    max-width: 100%;
+    max-height: 80vh;
+  }
+</style>
+</head>
+<body>
+  <div id="left-column">
+    <h1 id="greeting"></h1>
+    <ul id="info">
+      <li>Customer Service</li>
+      <li>Small Team Leadership</li>
+      <li>Group Collaboration</li>
+      <li>Oral and Written Communication</li>
+      <li>Multitasking</li>
+      <li>Geography</li>
+      <li>Community Development</li>
+      <li>ArcGIS, QGIS, ArcMap</li>
+      <li>Microsoft Office</li>
+      <li>Document Digitizing</li>
+      <li>Python</li>
+      <li>ArcGIS Online</li>
+      <li>Jupyter Notebooks</li>
+    </ul>
+  </div>
+  <div id="right-column">
+    <img id="image" src="https://i.pinimg.com/originals/c6/8b/8b/c68b8b12ff46e35bcd57194caf668222.png" alt="Greg Kohler">
+  </div>
+  <script>
+    var greetingElement = document.getElementById('greeting');
+    var infoElement = document.getElementById('info');
+    var imageElement = document.getElementById('image');
 
-        <!-- Information on the Right -->
-        <div class="col-lg-6">
-            <div class="container">
-                <div id="typing-container"></div>
+    var greetingText = "Hello, my name is Greg Kohler";
+    var infoItems = [
+      "Customer Service",
+      "Small Team Leadership",
+      "Group Collaboration",
+      "Oral and Written Communication",
+      "Multitasking",
+      "Geography",
+      "Community Development",
+      "ArcGIS, QGIS, ArcMap",
+      "Microsoft Office",
+      "Document Digitizing",
+      "Python",
+      "ArcGIS Online",
+      "Jupyter Notebooks"
+    ];
+    var imageSrc = "your_image_url_here.jpg";
 
-                <script>
-                    document.addEventListener('DOMContentLoaded', function() {
-                        var text = "Hello, my name is Greg Kohler";
-                        var container = document.getElementById('typing-container');
-            
-                        function typeText(index) {
-                            if(index < text.length) {
-                                container.innerHTML += text.charAt(index);
-                                index++;
-                                setTimeout(function() { typeText(index) }, 100); // Adjust the timeout to control typing speed
-                            } else {
-                    // Show the body text once typing is finished
-                                var bodyText = document.getElementById('body-text');
-                                bodyText.style.display = 'block';
-                            }
-                        }
-            
-                        typeText(0);
-                    });
-                </script>
-                <div id="body-text">
-                I am currently pursuing Master's degree in Geographic Information Sciences at the University of Minnesota. Prior to this, I completed dual Bachelor's degrees in Urban Studies and Environmental Geography with High Honors. My educational foundation was further strengthened with an Associate of Arts in Liberal Education from Normandale Community College. These experiences have equipped me with a comprehensive understanding of urban planning and geographic information systems, preparing me to make meaningful contributions in these fields.
-                </div>
-            </div>
-        <div class="col-lg-6">
-            <img src="https://i.pinimg.com/originals/58/db/86/58db86530c4ed7af2cc2408d19542dec.png" class="img-fluid" alt="Large Image">
-        </div>            
-        </div>
-    </div>
-</div>
+    function typeGreeting() {
+      var index = 0;
+      var typingInterval = setInterval(function() {
+        greetingElement.textContent += greetingText[index];
+        index++;
+        if (index >= greetingText.length) {
+          clearInterval(typingInterval);
+          revealInfo();
+        }
+      }, 50);
+    }
+
+    function revealInfo() {
+      infoElement.style.display = 'block';
+      var infoIndex = 0;
+      var revealInterval = setInterval(function() {
+        var li = document.createElement('li');
+        li.textContent = infoItems[infoIndex];
+        infoElement.appendChild(li);
+        infoIndex++;
+        if (infoIndex >= infoItems.length) {
+          clearInterval(revealInterval);
+          revealImage();
+        }
+      }, 500);
+    }
+
+    function revealImage() {
+      imageElement.src = imageSrc;
+      imageElement.style.display = 'block';
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      typeGreeting();
+    });
+  </script>
+</body>
+
+
