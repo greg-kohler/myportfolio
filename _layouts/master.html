@@ -95,7 +95,7 @@
     </nav>
 
     <!-- Main Content -->
-	<main style="margin-top:100px;">
+	<main>
 		{{content}}
 	</main>
 <footer>
@@ -113,12 +113,12 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script>
-    document.getElementById('navMenu').addEventListener('click', function() {
-        var mainContent = document.querySelector('main');
-        if (mainContent) {
-            mainContent.style.marginTop = (document.getElementById('navbar').offsetHeight + 20) + 'px';
-        }
-    });
+    	document.getElementById('navMenu').addEventListener('click', function() {
+        	var mainContent = document.querySelector('main');
+        	if (mainContent) {
+            	mainContent.style.marginTop = (document.getElementById('navbar').offsetHeight + 20) + 'px';
+        	}
+    	});
 </script>
 
 </body>
