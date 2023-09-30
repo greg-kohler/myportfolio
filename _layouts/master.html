@@ -78,7 +78,7 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav id="navbar" class="navbar navbar-dark navbar-expand-lg fixed-left" style="background-color: #2A4D14; position: fixed; top: 0; width: 100%; padding: 25px;">
+    <nav id="navbar" class="navbar navbar-dark navbar-expand-lg fixed-left" style="background-color: #2A4D14; position: fixed; top: 0; width: 100%; padding: 25px; z-index:9999;">
         <a id="logo" class="navbar-brand" href="#">Greg Kohler</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navMenu">
             <span class="navbar-toggler-icon"></span>
@@ -120,21 +120,6 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script>
-	document.addEventListener('DOMContentLoaded', function() {
-    var navbar = document.querySelector('.navbar');
-    var mainContent = document.querySelector('main');
-
-    document.getElementById('navMenu').addEventListener('click', function() {
-        if (navbar.classList.contains('expanded')) {
-            mainContent.style.marginTop = '400px'; // Adjust this value as needed
-        } else {
-            mainContent.style.marginTop = '100px';
-        }
-    });
-});
-
-    </script>
 
 </body>
 
