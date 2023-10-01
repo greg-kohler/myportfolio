@@ -9,6 +9,13 @@ Title: GIS Experience - Greg Kohler
       border: 1px solid #ccc;
       margin-bottom: 10px;
       padding: 10px;
+      overflow: hidden;
+      max-height: 10;
+      transition: max-height 0.5s ease;
+    }
+
+    .project.expanded {
+      max-height: 1000px; /* Adjust to a reasonable maximum height */
     }
 
     .project-title {
@@ -25,6 +32,11 @@ Title: GIS Experience - Greg Kohler
   </style>
 </head>
 <body>
+  <header>
+    <!-- Your header content goes here -->
+  </header>
+
+  <main>
     <section class="project">
       <h2 class="project-title">Project 1</h2>
       <button class="toggle-button" onclick="toggleDetails(this)">Toggle Details</button>
@@ -37,25 +49,48 @@ Title: GIS Experience - Greg Kohler
       <h2 class="project-title">Project 2</h2>
       <button class="toggle-button" onclick="toggleDetails(this)">Toggle Details</button>
       <div class="project-details">
-        <p>Project 2 details go here...</p>
+        <p>In the vast expanse of the digital age, where information flows ceaselessly and connections span continents in an instant, we find ourselves amidst a tapestry of possibilities. The convergence of technology and human ingenuity has ushered in an era of unprecedented progress, where innovation knows no bounds. From the marvels of artificial intelligence that breathe life into machines, to the boundless potential of renewable energy sources shaping a sustainable future, the horizon of human achievement stretches ever wider. In the realm of culture, diversity and inclusivity shine as guiding stars, illuminating the path towards a more harmonious global society. The power of storytelling, transcending borders and bridging generations, reminds us of our shared humanity. It is within this dynamic mosaic that we navigate the currents of change
+</p>
       </div>
     </section>
 
     <!-- Add more projects as needed -->
+  </main>
+
+  <footer>
+    <!-- Your footer content goes here -->
+  </footer>
 
   <script>
     function toggleDetails(button) {
       const project = button.parentElement;
       const projectDetails = project.querySelector('.project-details');
+      const startHeight = 0;
+      const endHeight = projectDetails.scrollHeight;
 
-      if (projectDetails.style.display === 'none' || projectDetails.style.display === '') {
-        projectDetails.style.display = 'block';
-        button.textContent = 'Hide Details';
-      } else {
-        projectDetails.style.display = 'none';
-        button.textContent = 'Toggle Details';
+      let currentHeight = startHeight;
+      let step = 1;
+      const animationDuration = 500; // Adjust as needed
+
+      function animate() {
+        if (currentHeight < endHeight) {
+          currentHeight += step;
+          projectDetails.style.maxHeight = currentHeight + 'px';
+          requestAnimationFrame(animate);
+        }
       }
+
+      if (project.classList.contains('expanded')) {
+        let currentHeight = endHeight;
+        let step = -1;
+        requestAnimationFrame(animate);
+      } else {
+        project.classList.toggle('expanded');
+        projectDetails.style.display = 'block';
+        requestAnimationFrame(animate);
+      }
+
+      button.textContent = project.classList.contains('expanded') ? 'Toggle Details' : 'Hide Details';
     }
   </script>
 </body>
-
