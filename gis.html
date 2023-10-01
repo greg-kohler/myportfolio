@@ -2,7 +2,6 @@
 layout: master
 Title: GIS Experience - Greg Kohler
 ---
-
 <head>
   <title>My Projects</title>
   <style>
@@ -10,13 +9,6 @@ Title: GIS Experience - Greg Kohler
       border: 1px solid #ccc;
       margin-bottom: 10px;
       padding: 10px;
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.5s ease;
-    }
-
-    .project.expanded {
-      max-height: 1000px; /* Adjust to a reasonable maximum height */
     }
 
     .project-title {
@@ -33,14 +25,9 @@ Title: GIS Experience - Greg Kohler
   </style>
 </head>
 <body>
-  <header>
-    <!-- Your header content goes here -->
-  </header>
-
-  <main>
     <section class="project">
       <h2 class="project-title">Project 1</h2>
-      <button class="toggle-button">Toggle Details</button>
+      <button class="toggle-button" onclick="toggleDetails(this)">Toggle Details</button>
       <div class="project-details">
         <p>Project 1 details go here...</p>
       </div>
@@ -48,38 +35,27 @@ Title: GIS Experience - Greg Kohler
 
     <section class="project">
       <h2 class="project-title">Project 2</h2>
-      <button class="toggle-button">Toggle Details</button>
+      <button class="toggle-button" onclick="toggleDetails(this)">Toggle Details</button>
       <div class="project-details">
         <p>Project 2 details go here...</p>
       </div>
     </section>
 
     <!-- Add more projects as needed -->
-  </main>
-
-  <footer>
-    <!-- Your footer content goes here -->
-  </footer>
 
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const toggleButtons = document.querySelectorAll('.toggle-button');
+    function toggleDetails(button) {
+      const project = button.parentElement;
+      const projectDetails = project.querySelector('.project-details');
 
-      toggleButtons.forEach(button => {
-        button.addEventListener('click', function() {
-          const project = this.parentElement;
-          project.classList.toggle('expanded');
-          const projectDetails = project.querySelector('.project-details');
-
-          if (project.classList.contains('expanded')) {
-            projectDetails.style.display = 'block';
-            this.textContent = 'Hide Details';
-          } else {
-            projectDetails.style.display = 'none';
-            this.textContent = 'Toggle Details';
-          }
-        });
-      });
-    });
+      if (projectDetails.style.display === 'none' || projectDetails.style.display === '') {
+        projectDetails.style.display = 'block';
+        button.textContent = 'Hide Details';
+      } else {
+        projectDetails.style.display = 'none';
+        button.textContent = 'Toggle Details';
+      }
+    }
   </script>
 </body>
+
