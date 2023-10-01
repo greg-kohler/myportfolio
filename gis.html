@@ -2,52 +2,74 @@
 layout: master
 Title: GIS Experience - Greg Kohler
 ---
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>My Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-zH7fn8WH+l5JXy+G7+maSqORU5awioW+POxygxQe4+Ak6vN3fljbwtGGQvm6MmXe" crossorigin="anonymous">
+  <title>My Projects</title>
+  <style>
+    .project {
+      border: 1px solid #ccc;
+      margin-bottom: 10px;
+      padding: 10px;
+    }
+
+    .project-title {
+      margin: 0;
+    }
+
+    .toggle-button {
+      margin-top: 10px;
+    }
+
+    .project-details {
+      display: none;
+    }
+  </style>
 </head>
 <body>
-  <div class="container mt-5">
-    <h1>My Portfolio</h1>
-    
-    <div class="accordion" id="projectAccordion">
-      <!-- Project 1 -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-            Project 1
-          </button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#projectAccordion">
-          <div class="accordion-body">
-            <h1>I made a better project</h1>
-          </div>
-        </div>
+  <header>
+    <!-- Your header content goes here -->
+  </header>
+
+  <main>
+    <section class="project">
+      <h2 class="project-title">Project 1</h2>
+      <button class="toggle-button">Toggle Details</button>
+      <div class="project-details">
+        <p>Project 1 details go here...</p>
       </div>
+    </section>
 
-      <!-- Project 2 -->
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            Project 2
-          </button>
-        </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#projectAccordion">
-          <div class="accordion-body">
-            <!-- Content for Project 2 goes here -->
-            <h1>I made a better project</h1>
-          </div>
-        </div>
+    <section class="project">
+      <h2 class="project-title">Project 2</h2>
+      <button class="toggle-button">Toggle Details</button>
+      <div class="project-details">
+        <p>Project 2 details go here...</p>
       </div>
+    </section>
 
-      <!-- Add more projects as needed -->
+    <!-- Add more projects as needed -->
+  </main>
 
-    </div>
-  </div>
+  <footer>
+    <!-- Your footer content goes here -->
+  </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-GR5EoAB3Gi3O68KwWBmUgSg22Nf3gMrtFsUt6M5zdtuv6zV9/abWsNR5F6bLPR6W" crossorigin="anonymous"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggleButtons = document.querySelectorAll('.toggle-button');
+
+      toggleButtons.forEach(button => {
+        button.addEventListener('click', function() {
+          const projectDetails = this.nextElementSibling;
+
+          if (projectDetails.style.display === 'none' || projectDetails.style.display === '') {
+            projectDetails.style.display = 'block';
+            this.textContent = 'Hide Details';
+          } else {
+            projectDetails.style.display = 'none';
+            this.textContent = 'Toggle Details';
+          }
+        });
+      });
+    });
+  </script>
 </body>
-
