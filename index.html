@@ -3,103 +3,106 @@ layout: master
 Title: Home - Greg Kohler
 ---
 
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: row;
-  }
-  #left-col {
-    width: 50%;
-    padding: 20px;
-    text-align: right;
-    max-height: 50%;
-    flex-basis: 48%;
-  }
-  #right-col {
-    width: 50%;
-    padding: 20px;
-    text-align: left;
-    flex-basis: 48%;
-  }
-  #greeting {
-    font-size: 40px;
-  }
-  #info {
-    display: none;
-    font-size: 25px;
-    list-style-type: disc;
-    padding-left: 20px;
-  }
-  #image {
-    display: none;
-    max-width: 100%;
-    max-height: 80vh;
-  }
-</style>
-<body>
-  <div id="left-col">
-    <h1 id="greeting"></h1>
-    <ul id="info">
-    </ul>
-  </div>
-  <div id="right-col">
-    <img id="image" src="https://i.pinimg.com/originals/c6/8b/8b/c68b8b12ff46e35bcd57194caf668222.png" alt="Greg Kohler">
-  </div>
-  <script>
-    var greetingElement = document.getElementById('greeting');
-    var infoElement = document.getElementById('info');
-    var imageElement = document.getElementById('image');
-
-    var greetingText = "Hello, my name is Greg Kohler";
-    var infoItems = [
-      "Python",
-      "Geography",
-      "ArcGIS, QGIS, ArcMap",
-      "Microsoft Office",
-      "Jupyter Notebooks"
-    ];
-    var imageSrc = "https://i.pinimg.com/originals/c6/8b/8b/c68b8b12ff46e35bcd57194caf668222.png";
-
-    function typeGreeting() {
-      var index = 0;
-      var typingInterval = setInterval(function() {
-        greetingElement.textContent += greetingText[index];
-        index++;
-        if (index >= greetingText.length) {
-          clearInterval(typingInterval);
-          revealInfo();
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        flex-direction: row;
+      }
+      #left-col {
+        width: 50%;
+        padding: 20px;
+        text-align: right;
+        max-height: 50%;
+        flex-basis: 48%;
+      }
+      #right-col {
+        width: 50%;
+        padding: 20px;
+        text-align: left;
+        flex-basis: 48%;
+      }
+      #greeting {
+        font-size: 40px;
+      }
+      #info {
+        display: none;
+        font-size: 25px;
+        list-style-type: disc;
+        padding-left: 20px;
+      }
+      #image {
+        display: none;
+        max-width: 100%;
+        max-height: 80vh;
+      }
+    </style>
+    <body>
+      <div class="container">
+      	<div class="row">
+          <div class="col-md-6 text-right">
+            <h1 id="greeting"></h1>
+            <ul id="info"></ul>
+        	</div>
+        	<div class="col-md-6">
+          	<img id="image" src="https://i.pinimg.com/originals/c6/8b/8b/c68b8b12ff46e35bcd57194caf668222.png" alt="Greg Kohler">
+        	</div>
+        </div>
+      </div>
+      <script>
+        var greetingElement = document.getElementById('greeting');
+        var infoElement = document.getElementById('info');
+        var imageElement = document.getElementById('image');
+    
+        var greetingText = "Hello, my name is Greg Kohler";
+        var infoItems = [
+          "Python",
+          "Geography",
+          "ArcGIS, QGIS, ArcMap",
+          "Microsoft Office",
+          "Jupyter Notebooks"
+        ];
+        var imageSrc = "https://i.pinimg.com/originals/c6/8b/8b/c68b8b12ff46e35bcd57194caf668222.png";
+    
+        function typeGreeting() {
+          var index = 0;
+          var typingInterval = setInterval(function() {
+            greetingElement.textContent += greetingText[index];
+            index++;
+            if (index >= greetingText.length) {
+              clearInterval(typingInterval);
+              revealInfo();
+            }
+          }, 50);
         }
-      }, 50);
-    }
-
-    function revealInfo() {
-      infoElement.style.display = 'block';
-      var infoIndex = 0;
-      var revealInterval = setInterval(function() {
-        var li = document.createElement('li');
-        li.textContent = infoItems[infoIndex];
-        infoElement.appendChild(li);
-        infoIndex++;
-        if (infoIndex >= infoItems.length) {
-          clearInterval(revealInterval);
-          revealImage();
+    
+        function revealInfo() {
+          infoElement.style.display = 'block';
+          var infoIndex = 0;
+          var revealInterval = setInterval(function() {
+            var li = document.createElement('li');
+            li.textContent = infoItems[infoIndex];
+            infoElement.appendChild(li);
+            infoIndex++;
+            if (infoIndex >= infoItems.length) {
+              clearInterval(revealInterval);
+              revealImage();
+            }
+          }, 500);
         }
-      }, 500);
-    }
-
-    function revealImage() {
-      imageElement.src = imageSrc;
-      imageElement.style.display = 'block';
-    }
-
-    document.addEventListener('DOMContentLoaded', function() {
-      typeGreeting();
-    });
-  </script>
-</body>
+    
+        function revealImage() {
+          imageElement.src = imageSrc;
+          imageElement.style.display = 'block';
+        }
+    
+        document.addEventListener('DOMContentLoaded', function() {
+          typeGreeting();
+        });
+      </script>
+    </body>
 
 
