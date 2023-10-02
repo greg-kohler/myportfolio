@@ -24,7 +24,8 @@ Title: GIS Experience - Greg Kohler
 
         .toggle-button {
             margin-top: 10px;
-            background-color: green;
+            background-color: #DBD2E0;
+            border-radius: 15px
         }
 
         .project-details {
@@ -47,7 +48,7 @@ Title: GIS Experience - Greg Kohler
     <main>
         <section class="project">
             <h2 class="project-title">Light Rail Project</h2>
-            <button class="toggle-button" onclick="toggleDetails(this)">Toggle Details</button>
+            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
             <div class="project-details">
                 <p>Project 1 details go here...</p>
             </div>
@@ -55,7 +56,7 @@ Title: GIS Experience - Greg Kohler
 
         <section class="project">
             <h2 class="project-title">GIS 5571 Final</h2>
-            <button class="toggle-button" onclick="toggleDetails(this)">Toggle Details</button>
+            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
             <div class="project-details">
                 <p>In the vast expanse of the digital age, where information flows ceaselessly and connections span continents in an instant, we find ourselves amidst a tapestry of possibilities. The convergence of technology and human ingenuity has ushered in an era of unprecedented progress, where innovation knows no bounds. From the marvels of artificial intelligence that breathe life into machines, to the boundless potential of renewable energy sources shaping a sustainable future, the horizon of human achievement stretches ever wider. In the realm of culture, diversity and inclusivity shine as guiding stars, illuminating the path towards a more harmonious global society. The power of storytelling, transcending borders and bridging generations, reminds us of our shared humanity. It is within this dynamic mosaic that we navigate the currents of change
                 </p>
@@ -64,7 +65,7 @@ Title: GIS Experience - Greg Kohler
 
         <section class="project">
             <h2 class="project-title">Project 3</h2>
-            <button class="toggle-button" onclick="toggleDetails(this)">Toggle Details</button>
+            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
             <div class="project-details">
                 <p>Project 3 details go here...</p>
             </div>
@@ -72,7 +73,7 @@ Title: GIS Experience - Greg Kohler
 
         <section class="project">
             <h2 class="project-title">Project 4</h2>
-            <button class="toggle-button" onclick="toggleDetails(this)">Toggle Details</button>
+            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
             <div class="project-details">
                 <p>Project 4 details go here...</p>
             </div>
@@ -96,7 +97,7 @@ Title: GIS Experience - Greg Kohler
                 const scrollHeight = projectDetails.scrollHeight;
                 projectDetails.style.maxHeight = scrollHeight + 'px';
                 project.classList.add('expanded');
-                button.textContent = 'Hide Details';
+                button.textContent = 'Collapse';
             }
         }
     </script>
