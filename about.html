@@ -4,129 +4,110 @@ title: About
 ---
 
 <head>
-    <title>About Me - Greg Kohler</title>
+    <title>About Me Page</title>
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
             background-color: #f0f0f0;
+            margin: 0;
         }
 
-        .about-container {
-            max-width: 800px;
-            margin: auto;
-            padding: 20px;
-            background-color: #ffffff;
+        .container {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            background-color: #fff;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-top: 20px;
-            opacity: 0; /* Initially set to transparent */
-            transition: opacity 1s ease; /* Add a transition */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            overflow: hidden;
         }
 
-        .about-container.active {
-            opacity: 1; /* When active, set opacity to 1 */
+        .column {
+            flex: 1;
+            padding: 20px;
         }
 
-        .about-container img {
-            max-width: 100%;
-            border-radius: 10px;
-            order: 2; /* Change the order so the image appears last */
+        .column.left {
+            background-color: #f8f8f8;
         }
 
-        .section-title {
-            font-size: 1.5em;
-            margin: 20px 0;
+        .column.right {
+            background-color: #e0e0e0;
         }
 
-        .section-content p {
-            font-size: 1.1em;
-            line-height: 1.6;
+        h2 {
+            margin-top: 0;
+        }
+
+        .section-content {
             margin-bottom: 20px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transition: opacity 1s ease;
         }
 
-        .section-content ul {
-            list-style-type: disc;
-            margin-left: 20px;
-        }
-
-        .section-content ul li {
-            font-size: 1.1em;
-            line-height: 1.6;
+        .profile-image {
+            max-width: 100%;
+            border-radius: 8px;
+            display: none;
         }
     </style>
 </head>
 
 <body>
-    <header>
-        <!-- Your header content goes here -->
-    </header>
-
-    <main>
-        <div class="about-container">
-            <div class="section-content">
-                <h2 class="section-title">Education</h2>
-                <p>
-                    Insert your educational background here. Include details about your degrees, institutions, and relevant coursework.
-                </p>
+    <div class="container">
+        <div class="column left">
+            <div class="section-content" id="section1">
+                <h2>Section 1</h2>
+                <p>This is the content for Section 1. You can add any text or elements here.</p>
+            </div>
+            <div class="section-content" id="section2">
+                <h2>Section 2</h2>
+                <p>This is the content for Section 2. You can add any text or elements here.</p>
+            </div>
+            <div class="section-content" id="section3">
+                <h2>Section 3</h2>
+                <p>This is the content for Section 3. You can add any text or elements here.</p>
             </div>
         </div>
-
-        <div class="about-container">
-            <div class="section-content">
-                <h2 class="section-title">Programming Skills</h2>
-                <ul>
-                    <li>Python</li>
-                    <li>ArcGIS</li>
-                    <li>QGIS</li>
-                    <li>Other relevant skills</li>
-                </ul>
-            </div>
+        <div class="column right" id="right-column">
+            <!-- Right column content goes here -->
         </div>
-
-        <div class="about-container">
-            <div class="section-content">
-                <h2 class="section-title">Interests</h2>
-                <ul>
-                    <li>Urban Planning and Design</li>
-                    <li>Sustainable Development</li>
-                    <li>Data Analysis and Visualization</li>
-                    <li>Open Source GIS Tools</li>
-                    <!-- Add more interests as needed -->
-                </ul>
-            </div>
-        </div>
-
-        <div class="about-container">
-            <img src="https://i.pinimg.com/originals/58/db/86/58db86530c4ed7af2cc2408d19542dec.png" alt="Greg Kohler">
-        </div>
-    </main>
-
-    <footer>
-        <!-- Your footer content goes here -->
-    </footer>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            var aboutContainers = document.querySelectorAll('.about-container');
+            var sections = document.querySelectorAll('.section-content');
+            var rightColumn = document.getElementById('right-column');
 
-            function revealAboutContainer(index) {
-                aboutContainers[index].classList.add('active');
+            function revealSections(index) {
+                if (index < sections.length) {
+                    sections[index].style.opacity = '1';
+                    setTimeout(function() {
+                        revealSections(index + 1);
+                    }, 500); // Adjust delay between sections (in milliseconds)
+                } else {
+                    var profileImage = document.createElement('img');
+                    profileImage.classList.add('profile-image');
+                    profileImage.src = 'https://i.pinimg.com/originals/58/db/86/58db86530c4ed7af2cc2408d19542dec.png';
+                    profileImage.alt = 'Greg Kohler';
+                    rightColumn.appendChild(profileImage);
+                    profileImage.style.display = 'block';
+                    profileImage.style.opacity = '1';
+                }
             }
 
-            var delay = 1000; // Adjust the delay between sections (in milliseconds)
-
-            aboutContainers.forEach(function(container, index) {
-                setTimeout(function() {
-                    revealAboutContainer(index);
-                }, index * delay);
-            });
+            revealSections(0);
         });
     </script>
 </body>
+
 
 
