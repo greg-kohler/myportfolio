@@ -1,110 +1,99 @@
 ---
 layout: master
-Title: Home - Greg Kohler
+title: Home - Greg Kohler
 ---
 
+<head>
+    <title>Home - Greg Kohler</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        flex-direction: row;
-      }
-      #left-col {
-        width: 50%;
-        padding: 20px;
-        text-align: right;
-        max-height: 50%;
-        flex-basis: 48%;
-      }
-      #right-col {
-        width: 50%;
-        padding: 20px;
-        text-align: left;
-        flex-basis: 48%;
-      }
-      #greeting {
-        font-size: 50px;
-        text-align: center;  
-      }
-      #info {
-          display: none;
-          font-size: 25px;
-          list-style-type: none; /* Remove bullet points */
-          padding: 0; /* Remove default padding */
-          text-align: center; /* Center the text */
-      }
-      #image {
-        display: none;
-        max-width: 60%;
-        max-height: 80vh;
-        opacity: 0; /* Initially set to transparent */
-        transition: opacity 1.5s ease; /* Add a transition */
-      }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/32/Stadium_Village_station.jpg'); /* Replace with your own image */
+            background-size: cover;
+            background-position: center;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.5); /* Add a semi-transparent overlay */
+            border-radius: 10px;
+        }
+
+        .hero-content h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            overflow: hidden;
+            border-right: 1px solid #ffffff;
+            white-space: nowrap;
+            margin: 0;
+            padding: 0;
+            display: inline-block;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 1em;
+            text-decoration: none;
+            background-color: #659B5E;
+            color: #ffffff;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background-color: #4E7E4A;
+        }
+
+        .typing-effect {
+            display: inline-block;
+            overflow: hidden;
+            border-right: 1px solid #ffffff;
+            white-space: nowrap;
+            margin: 0;
+            padding: 0;
+        }
     </style>
-    <body>
-      <div class="container">
-      	<div class="row">
-          <div class="col-md-6 text-right">
-            <h1 id="greeting"></h1>
-            <ul id="info"></ul>
-        	</div>
-        	<div class="col-md-6">
-          	<img id="image" src="https://i.pinimg.com/originals/c6/8b/8b/c68b8b12ff46e35bcd57194caf668222.png" alt="Greg Kohler">
-        	</div>
-        </div>
-      </div>
-      <script>
-        var greetingElement = document.getElementById('greeting');
-        var infoElement = document.getElementById('info');
-        var imageElement = document.getElementById('image');
-    
+</head>
+<body>
+    <div class="hero-content">
+        <h1 class="typing-effect"></h1>
+        <p>Welcome to my website. Explore my GIS projects and experiences.</p>
+        <a href="#" class="cta-button">Get Started</a>
+    </div>
+
+    <script>
+        var greetingElement = document.querySelector('.typing-effect');
         var greetingText = "Hello, I am Greg Kohler";
-        var infoItems = [
-          "Python",
-          "ArcGIS",  
-          "QGIS",  
-          "Urban Studies"  
-        ];
-        var imageSrc = "https://i.pinimg.com/originals/c6/8b/8b/c68b8b12ff46e35bcd57194caf668222.png";
-    
+        var index = 0;
+
         function typeGreeting() {
-          var index = 0;
-          var typingInterval = setInterval(function() {
-            greetingElement.textContent += greetingText[index];
-            index++;
-            if (index >= greetingText.length) {
-              clearInterval(typingInterval);
-              revealInfo();
-            }
-          }, 50);
+            var typingInterval = setInterval(function() {
+                greetingElement.textContent += greetingText[index];
+                index++;
+                if (index >= greetingText.length) {
+                    clearInterval(typingInterval);
+                }
+            }, 100);
         }
-    
-        function revealInfo() {
-          infoElement.style.display = 'block';
-          var infoIndex = 0;
-          var revealInterval = setInterval(function() {
-            var li = document.createElement('li');
-            li.textContent = infoItems[infoIndex];
-            infoElement.appendChild(li);
-            infoIndex++;
-            if (infoIndex >= infoItems.length) {
-              clearInterval(revealInterval);
-              revealImage();
-            }
-          }, 500);
-        }
-    
-        function revealImage() {
-          imageElement.src = imageSrc;
-          imageElement.style.display = 'block';
-          imageElement.style.opacity = '.8';
-        }
-    
+
         document.addEventListener('DOMContentLoaded', function() {
-          typeGreeting();
+            typeGreeting();
         });
-      </script>
-    </body>
+    </script>
+</body>
