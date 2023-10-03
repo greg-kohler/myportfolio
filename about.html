@@ -76,7 +76,7 @@ title: About
             </div>
         </div>
         <div class="column right" id="right-column">
-            <!-- Right column content goes here -->
+             <img src="https://i.pinimg.com/originals/58/db/86/58db86530c4ed7af2cc2408d19542dec.png" class="profile-image" id="myImage" alt="Greg Kohler"> 
         </div>
     </div>
 
@@ -92,14 +92,8 @@ title: About
                         revealSections(index + 1);
                     }, 500); // Adjust delay between sections (in milliseconds)
                 } else {
-                    var profileImage = document.createElement('img');
-                    profileImage.classList.add('profile-image');
-                    profileImage.src = 'https://i.pinimg.com/originals/58/db/86/58db86530c4ed7af2cc2408d19542dec.png';
-                    profileImage.alt = 'Greg Kohler';
-                    rightColumn.appendChild(profileImage);
-                    profileImage.style.display = 'block';
-                    profileImage.style.opacity = '1';
-                }
+                    var myImage = document.getElementById('myImage');
+					myImage.style.opacity = '1';}
             }
 
             revealSections(0);
