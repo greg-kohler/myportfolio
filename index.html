@@ -28,16 +28,18 @@ Title: Home - Greg Kohler
       #greeting {
         font-size: 50px;
         text-align: center;
-        height: 60px;
+        white-space: pre-line; /* Preserve line breaks */
+        height: 150px; /* Reserve enough space for fully revealed text */
+        overflow: hidden; /* Hide overflow */
       }
       #info {
-          display: none;
-          font-size: 25px;
-          list-style-type: none; /* Remove bullet points */
-          padding: 0; /* Remove default padding */
-          text-align: center; /* Center the text */
-          height: 120px; /* Fixed height for the info */
-          overflow-y: auto; /* Add vertical scrollbar if needed */
+        font-size: 25px;
+        list-style-type: none;
+        padding: 0;
+        text-align: center;
+        white-space: pre-line; /* Preserve line breaks */
+        max-height: 120px; /* Maximum height for info */
+        overflow-y: auto; /* Add vertical scrollbar if needed */
       }
       #image {
         display: none;
