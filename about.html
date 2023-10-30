@@ -17,7 +17,6 @@ title: About
 
         .container {
             display: flex;
-            flex-direction: column;
             width: 100%;
             max-width: 1200px;
             background-color: #fff;
@@ -31,14 +30,13 @@ title: About
         }
 
         .column.left {
-            min-width: 200px;
+            min-width: 200px;    
         }
-
         .column.right {
-            width: 100%;
-            display: flex;
-            align-items: center;
-        }
+	    width: 100%;
+	    display: flex;
+	    align-items: center;
+	}
 
         h2 {
             margin-top: 0;
@@ -60,16 +58,6 @@ title: About
             display: block;
             opacity: 0;
         }
-
-        @media (max-width: 768px) {
-            .container {
-                flex-direction: column-reverse;
-            }
-
-            .column.right {
-                align-self: center;
-            }
-        }
     </style>
 </head>
 
@@ -90,7 +78,7 @@ title: About
             </div>
         </div>
         <div class="column right" id="right-column">
-            <img src="https://github.com/greg-kohler/myportfolio/blob/main/DSC_2500.jpg?raw=true" class="profile-image" id="myImage" alt="Greg Kohler">
+             <img src="https://github.com/greg-kohler/myportfolio/blob/main/DSC_2500.jpg?raw=true" class="profile-image" id="myImage" alt="Greg Kohler"> 
         </div>
     </div>
 
@@ -107,11 +95,12 @@ title: About
                     }, 500); // Adjust delay between sections (in milliseconds)
                 } else {
                     var myImage = document.getElementById('myImage');
-                    myImage.style.opacity = '1';
-                }
+					myImage.style.opacity = '1';}
             }
 
             revealSections(0);
         });
     </script>
 </body>
+
+
