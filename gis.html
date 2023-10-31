@@ -49,6 +49,10 @@ title: GIS Experience - Greg Kohler
         .project.expanded .project-details {
             max-height: 1000px; /* Adjust to a reasonable maximum height */
         }
+        body.expanded {
+            background-color: #f2f2f2; /* Change this to your desired background color */
+        }
+
     </style>
 </head>
 
@@ -68,7 +72,7 @@ title: GIS Experience - Greg Kohler
 
         <section class="project" style="background-image: url('https://github.com/greg-kohler/myportfolio/blob/main/94RemovalLine.png?raw=true");">
             <h2 class="project-title">I-94 Removal Route Analysis</h2>
-            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
+            <button class="toggle-button" onclick="toggleDetails(this, 1)">Learn More</button>
             <div class="project-details">
                 <p>In the vast expanse of the digital age, where information flows ceaselessly and connections span continents in an instant, we find ourselves amidst a tapestry of possibilities. The convergence of technology and human ingenuity has ushered in an era of unprecedented progress, where innovation knows no bounds. From the marvels of artificial intelligence that breathe life into machines, to the boundless potential of renewable energy sources shaping a sustainable future, the horizon of human achievement stretches ever wider. In the realm of culture, diversity and inclusivity shine as guiding stars, illuminating the path towards a more harmonious global society. The power of storytelling, transcending borders and bridging generations, reminds us of our shared humanity. It is within this dynamic mosaic that we navigate the currents of change
                 </p>
@@ -97,21 +101,33 @@ title: GIS Experience - Greg Kohler
     </footer>
 
     <script>
-        function toggleDetails(button) {
+        const backgroundImages = [
+            'url("image_url_for_project1.jpg")',
+            'url("https://github.com/greg-kohler/myportfolio/blob/main/94RemovalLine.png?raw=true")',
+            'url("image_url_for_project3.jpg")',
+            'url("image_url_for_project4.jpg")'
+        ];
+
+        function toggleDetails(button, index) {
             const project = button.parentElement;
             const projectDetails = project.querySelector('.project-details');
-
+            const body = document.querySelector('body');
+        
             if (project.classList.contains('expanded')) {
                 projectDetails.style.maxHeight = '0';
                 project.classList.remove('expanded');
                 button.textContent = 'Learn More';
+                body.style.backgroundImage = 'none'; // Remove background image
             } else {
                 const scrollHeight = projectDetails.scrollHeight;
                 projectDetails.style.maxHeight = scrollHeight + 'px';
                 project.classList.add('expanded');
                 button.textContent = 'Collapse';
+                body.style.backgroundImage = backgroundImages[index]; // Set the background image
             }
         }
+
+
     </script>
 </body>
 
