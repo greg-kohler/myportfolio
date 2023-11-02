@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>        
-	{% if page.title %}
+        {% if page.title %}
             {{ page.title }}
         {% else %}
             Greg Kohler
@@ -22,19 +22,20 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Set a minimum height to fill the viewport */
         }
         footer {
             background-color: #a9a9a9;
             color: #fff;
             padding: 10px;
             text-align: center;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
+            margin-top: auto; /* Push the footer to the bottom */
         }
         .footer-content {
             display: inline-block;
-            justify-content: space between;
+            justify-content: space-between;
             max-width: 100%;
             margin: 0 auto;
             flex-wrap: wrap;
@@ -58,18 +59,19 @@
             flex: 1;
             /* Add some content here */
             padding: 20px;
-        }	    
+        }
         .navbar {
-        	background-color: black;
-        	padding: 20px;
-        	transition: padding 1s;
-        	position: fixed;
-            	top: 0;
+            background-color: black;
+            padding: 20px;
+            transition: padding 1s;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 9999;
         }
         .main-content {
             margin-top: 100px; /* Set an initial margin */
         }
-            
     </style>
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
@@ -77,12 +79,12 @@
 
 <body>
     <!-- Navigation Bar -->
-    <nav id="navbar" class="navbar navbar-dark navbar-expand-lg fixed-left" style="background-color: #1034a6; position: fixed; top: 0; width: 100%; padding: 25px; z-index:9999;">
+    <nav id="navbar" class="navbar navbar-dark navbar-expand-lg" style="background-color: #1034a6;">
         <a id="logo" class="navbar-brand" href="#">Greg Kohler</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="navMenu">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse justify-content-center" id "navbarNav">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Home</a>
@@ -98,28 +100,26 @@
                 </li>
             </ul>
         </div>
-
     </nav>
 
     <!-- Main Content -->
-	<main class="main-content">
-		{{content}}
-	</main>
-<footer>
+    <main class="main-content">
+        {{content}}
+    </main>
+
+    <footer>
         <div class="footer-content">
-            <div class "contact-info">
+            <div class="contact-info">
                 <a href="mailto:gregakohler@gmail.com">Email</a>
                 <a href="https://github.com/greg-kohler">GitHub</a>
             </div>
         </div>
-</footer>
-
+    </footer>
 
     <!-- Bootstrap JavaScript -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </body>
 
 </html>
