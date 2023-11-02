@@ -53,7 +53,7 @@ title: Technical Experience - Greg Kohler
 
         .project.expanded .project-details {
             max-height: 1000px;
-            margin-top: 25px;
+            margin-top: 10px;
         }
 
         .expandcontent {
@@ -127,7 +127,7 @@ function toggleDetails(button) {
     } else {
         const scrollHeight = projectDetails.scrollHeight;
         projectDetails.style.maxHeight = scrollHeight + 'px';
-        projectDetails.style.marginTop = '25px';
+        projectDetails.style.marginTop = '10px';
         project.classList.add('expanded');
         button.textContent = 'Collapse';
     }
