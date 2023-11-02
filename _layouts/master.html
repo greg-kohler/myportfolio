@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
+    <title>        
         {% if page.title %}
             {{ page.title }}
         {% else %}
@@ -22,15 +22,16 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            min-height: 100vh; /* Set a minimum height for the body to push the footer down */
             display: flex;
             flex-direction: column;
+            min-height: 100vh; /* Set a minimum height to fill the viewport */
         }
         footer {
             background-color: #a9a9a9;
             color: #fff;
             padding: 10px;
             text-align: center;
+            margin-top: auto; /* Push the footer to the bottom */
         }
         .footer-content {
             display: inline-block;
