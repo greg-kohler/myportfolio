@@ -3,6 +3,7 @@ layout: master
 title: About
 ---
 
+
 <head>
     <title>About Me Page</title>
     <style>
@@ -17,8 +18,7 @@ title: About
 
         .container {
             display: flex;
-            flex-direction: column; /* Change to column layout */
-            align-items: center; /* Center content vertically */
+            align-items: center;
             width: 100%;
             max-width: 1200px;
             background-color: #fff;
@@ -29,7 +29,6 @@ title: About
         .column {
             flex: 1;
             padding: 20px;
-            text-align: center; /* Center text in columns */
         }
 
         .column.left {
@@ -67,7 +66,17 @@ title: About
                 flex-direction: column;
             }
             .column.right {
-                order: -1; /* Move the image to the top (before the text) */
+                order: -1;
+            }
+        }
+
+        /* Media query to reset layout for screens wider than 600px */
+        @media (min-width: 601px) {
+            .container {
+                flex-direction: row;
+            }
+            .column.right {
+                order: 2;
             }
         }
     </style>
@@ -128,6 +137,7 @@ title: About
         });
     </script>
 </body>
+
 
 
 
