@@ -43,9 +43,9 @@ title: Technical Experience - Greg Kohler
         .project-details {
             max-height: 0;
             overflow: hidden;
-            transition: max-height 0.5s ease;
-            background-color: rgba(255, 255, 255, 0.7); /* White background color with 50% opacity */
-            margin-top: 25px;
+            transition: max-height 0.5s ease, margin-top 0.5s ease;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-top: 0;/* White background color with 50% opacity */
         }
 
         .project.expanded .project-details {
@@ -104,21 +104,31 @@ title: Technical Experience - Greg Kohler
     </footer>
 
     <script>
-        function toggleDetails(button) {
-            const project = button.parentElement;
-            const projectDetails = project.querySelector('.project-details');
+function toggleDetails(button) {
+    const project = button.parentElement;
+    const projectDetails = project.querySelector('.project-details');
 
-            if (project.classList.contains('expanded')) {
-                projectDetails.style.maxHeight = '0';
-                project.classList.remove('expanded');
-                button.textContent = 'Learn More';
-            } else {
-                const scrollHeight = projectDetails.scrollHeight;
-                projectDetails.style.maxHeight = scrollHeight + 'px';
-                project.classList.add('expanded');
-                button.textContent = 'Collapse';
-            }
-        }
+    if (project.classList.contains('expanded')) {
+        projectDetails.style.maxHeight = '0';
+        button.textContent = 'Learn More';
+        
+        // Delay removing the margin until the animation is complete
+        setTimeout(() => {
+            projectDetails.style.marginTop = '0';
+        }, 500); // Adjust the delay to match your animation duration (0.5s in this case)
+        
+        project.classList.remove('expanded');
+    } else {
+        const scrollHeight = projectDetails.scrollHeight;
+        projectDetails.style.maxHeight = scrollHeight + 'px';
+        projectDetails.style.marginTop = '25px';
+        project.classList.add('expanded');
+        button.textContent = 'Collapse';
+    }
+}
+
     </script>
 </body>
+
+
 
