@@ -17,6 +17,8 @@ title: About
 
         .container {
             display: flex;
+            flex-direction: column; /* Change to column layout */
+            align-items: center; /* Center content vertically */
             width: 100%;
             max-width: 1200px;
             background-color: #fff;
@@ -27,16 +29,16 @@ title: About
         .column {
             flex: 1;
             padding: 20px;
+            text-align: center; /* Center text in columns */
         }
 
         .column.left {
-            min-width: 200px;    
+            min-width: 200px;
         }
+
         .column.right {
-	    width: 100%;
-	    display: flex;
-	    align-items: center;
-	}
+            width: 100%;
+        }
 
         h2 {
             margin-top: 0;
@@ -58,6 +60,16 @@ title: About
             display: block;
             opacity: 0;
         }
+
+        /* Media query for screens narrower than 600px */
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+            }
+            .column.right {
+                order: -1; /* Move the image to the top (before the text) */
+            }
+        }
     </style>
 </head>
 
@@ -70,46 +82,53 @@ title: About
             </div>
             <div class="section-content" id="section2">
                 <h2>Skills</h2>
-                <p>
-		  <li>Python - Building ETL Pipelines, Automating Layout Exports</li>
-		  <li>ArcGIS Pro - Creating Network Analysis Datasets, Performing Geospaital Analysis</li>
-		  <li>ArcGIS Online - Creating Survey123 Forms, Creating Content Groups</li>
-		  <li>QGIS - Basic QGIS Skils</li>
-		</p>
+                <p> I have a diverse set of skills
+                    <ul>
+                        <li>Python - Building ETL Pipelines, Automating Layout Exports</li>
+                        <li>ArcGIS Pro - Creating Network Analysis Datasets, Performing Geospatial Analysis</li>
+                        <li>ArcGIS Online - Creating Survey123 Forms, Creating Content Groups</li>
+                        <li>QGIS - Basic QGIS Skills</li>
+                    </ul>
+                </p>
             </div>
             <div class="section-content" id="section3">
                 <h2>Interests</h2>
                 <p>
-		  <li>Transportation - Transit, Future of Personal Vehicles, Bikes</li>
-		  <li>Infrastructure - Transit Infrastructure, City Services</li>
-		  <li>Urban Planning - Urban and Regional Planning</li>
-		</p>
+                    <ul>
+                        <li>Transportation - Transit, Future of Personal Vehicles, Bikes</li>
+                        <li>Infrastructure - Transit Infrastructure, City Services</li>
+                        <li>Urban Planning - Urban and Regional Planning</li>
+                    </ul>
+                </p>
             </div>
         </div>
         <div class="column right" id="right-column">
-             <img src="https://github.com/greg-kohler/myportfolio/blob/main/DSC_2500.jpg?raw=true" class="profile-image" id="myImage" alt="Greg Kohler"> 
+            <img src="https://github.com/greg-kohler/myportfolio/blob/main/DSC_2500.jpg?raw=true" class="profile-image" id="myImage" alt="Greg Kohler">
         </div>
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             var sections = document.querySelectorAll('.section-content');
             var rightColumn = document.getElementById('right-column');
 
             function revealSections(index) {
                 if (index < sections.length) {
                     sections[index].style.opacity = '1';
-                    setTimeout(function() {
+                    setTimeout(function () {
                         revealSections(index + 1);
                     }, 500); // Adjust delay between sections (in milliseconds)
                 } else {
                     var myImage = document.getElementById('myImage');
-					myImage.style.opacity = '1';}
+                    myImage.style.opacity = '1';
+                }
             }
 
             revealSections(0);
         });
     </script>
 </body>
+
+
 
 
