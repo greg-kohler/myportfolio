@@ -15,6 +15,9 @@ title: Technical Experience - Greg Kohler
             transition: max-height 0.5s ease;
             max-width: 80%;
             background-color: white;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
         }
 
         .project.expanded {
@@ -61,6 +64,9 @@ title: Technical Experience - Greg Kohler
             max-height: 400px;
             display: block;
             margin: 0 auto;
+        }
+        .background-image {
+            background-repeat: no-repeat;
         }
     </style>
 </head>
@@ -115,7 +121,7 @@ function toggleDetails(button) {
         // Delay removing the margin until the animation is complete
         setTimeout(() => {
             projectDetails.style.marginTop = '0';
-        }, 500); // Adjust the delay to match your animation duration (0.5s in this case)
+        }, 300); // Adjust the delay to match your animation duration (0.5s in this case)
         
         project.classList.remove('expanded');
     } else {
