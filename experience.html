@@ -3,4 +3,157 @@ layout: master
 Title: Other Experience - Greg Kohler
 ---
 
-Here I will put my other experience
+<head>
+    <style>
+        .project {
+            border: 1px solid #ccc;
+            margin-bottom: 10px;
+            margin-left: 10%;
+            padding: 10px;
+            transition: max-height 0.5s ease;
+            max-width: 80%;
+            background-color: white;
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+	    background-blend-mode: lighten;
+            background-color: rgba(255,255,255,0.4);
+  	    border-radius: 10px;
+	    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .project.expanded {
+            max-height: 5000px; /* Adjust to a reasonable maximum height */
+        }
+
+        .project-title {
+            margin: 0;
+        }
+
+        .toggle-button {
+            background-color: #6a738d;
+            color: #FFFFFF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .toggle-button:hover {
+            background-color: #a3a9ba;
+        }
+
+        .project-details {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease, margin-top 0.5s ease;
+            background-color: rgba(255, 255, 255, 0.9);
+            margin-top: 0;/* White background color with 50% opacity */
+	    border-radius: 10px;
+        }
+
+        .project.expanded .project-details {
+            max-height: 1000px;
+            margin-top: 10px;
+        }
+
+        .expandcontent {
+            text-align: center;
+        }
+
+        .centered-image {
+            max-height: 40vh;
+            display: block;
+            margin: 0 auto;
+	    margin-bottom: 2.5vh;
+        }
+        .background-image {
+            background-repeat: no-repeat;
+        }
+        .projectinfo {
+        	max-width: 95%;
+            margin-left: 2.5%;
+            text-align: center;
+        }
+	iframe {
+		width: 60vw;
+		height: 80vh;
+	}
+    </style>
+</head>
+
+<body>
+    <header>
+        <!-- Your header content goes here -->
+    </header>
+
+    <main>
+        <section class="project" style="background-image: url('https://media.istockphoto.com/id/176740990/photo/crossroads-intersection-of-lonely-country-gravel-road-with-highway-fields.jpg?s=612x612&w=0&k=20&c=vpklRzNSneVj-3gbkx0I7UzgHZQbnHeb6-KjU5e63Uc=');">
+            <h2 class="project-title">CRSP Form Generator</h2>
+            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
+            <div class="project-details">
+                <p class="projectinfo">For this project, I created a Python pipeline in Jupyter Notebooks that ran through a large database provided by MnDOT. This pipeline generated 200+ informational layouts about intersections, road curves, and road segments and exported them to PDFs. Each layout had 30+ fields that were filled out using a SearchCursor that ran through the database. This pipeline reduced workload and allowed the team to make changes easily and efficiently.</p>
+                <div class="expandcontent">
+                    <img class="centered-image" src="https://raw.githubusercontent.com/greg-kohler/myportfolio/main/Rural_Curve_Wadena_P98_C.80.4.23.006.jpg" alt="CRSP Form">
+                </div>
+            </div>
+        </section>
+
+        <section class="project" style="background-image: url('https://github.com/greg-kohler/myportfolio/blob/main/94RemovalLine.png?raw=true');">
+            <h2 class="project-title">I-94 Removal Route Analysis</h2>
+            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
+            <div class="project-details">
+                <p class="projectinfo">For this analysis, I chose to compare the differences in service area for cars before and after the removal of I-94 between downtown Minneapolis and Saint Paul. To achieve this, I created multiple Network Analysis Datasets using the street centerlines of the seven county Twin Cities metro. One dataset had I-94, while the other did not. With these datasets, I was able to randomly sample points around the metro and compare how their service areas were changed. More about this project will be included as it is finalized. </p>
+            </div>
+        </section>
+        
+        <section class="project" style="background-image: url('https://cdn.stocksnap.io/img-thumbs/960w/intersection-crosswalk_HPUBSYPS9Q.jpg');">
+            <h2 class="project-title">Data Request Tracking Form</h2>
+            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
+            <div class="project-details">
+                <p class="projectinfo">This was a Survey123 form I created to enable project managers to request data. This data came in the form of videos of intersections that needed vehicle and/or pedestrian turning movememts counted. This tracking form enabled project managers to select the exact location they wanted counted, input deadlines, and billing information. This form also connected to a web map on ArcGIS Online, this allowed project managers to visualize where data has been collected to avoid redudancy.</p>
+            </div>
+        </section>
+
+        <section class="project" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/3/3c/Metro_Green_Line_Train%2C_St._Paul%2C_Minnesota_%2834622505665%29.jpg');">
+            <h2 class="project-title">Rapid Transit Equity</h2>
+            <button class="toggle-button" onclick="toggleDetails(this)">Learn More</button>
+            <div class="project-details">
+                <p class="projectinfo">In this research project, I explored the critical topic of transportation equity in the Twin Cities region, utilizing the power of GIS to analyze planned transitways and demographics. This project focused on transit routes, including the Orange Line, Blue Line Extension, Green Line Extension, Gold Line, and Rush Line. Through the application of GIS tools and spatial analytics, I gained valuable insights into how these transit routes would serve transit-dependent populations. By analyzing demographic data of people living near these transit stops and comparing it to county-level statistics, I uncovered crucial information about the equity of these transit services. My project underlines the significance of equitable access to public transportation and the need to hold government agencies accountable for meeting the diverse needs of the community.</p>
+	        <iframe class="centered-image" src="https://drive.google.com/file/d/1iTdl195l_y1_v101eh3YHd02PbNyKsNO/preview" h frameborder="0" allowfullscreen></iframe>	
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Your footer content goes here -->
+    </footer>
+
+    <script>
+function toggleDetails(button) {
+    const project = button.parentElement;
+    const projectDetails = project.querySelector('.project-details');
+
+    if (project.classList.contains('expanded')) {
+        projectDetails.style.maxHeight = '0';
+        button.textContent = 'Learn More';
+        
+        // Delay removing the margin until the animation is complete
+        setTimeout(() => {
+            projectDetails.style.marginTop = '0';
+        }, 300); // Adjust the delay to match your animation duration (0.5s in this case)
+        
+        project.classList.remove('expanded');
+    } else {
+        const scrollHeight = projectDetails.scrollHeight;
+        projectDetails.style.maxHeight = scrollHeight + 'px';
+        projectDetails.style.marginTop = '10px';
+        project.classList.add('expanded');
+        button.textContent = 'Collapse';
+    }
+}
+
+    </script>
+</body>
