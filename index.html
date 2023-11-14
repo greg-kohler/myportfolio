@@ -70,6 +70,19 @@ title: Home - Greg Kohler
             margin: 0;
             padding: 0;
         }
+        /* Media query for screens narrower than 600px */
+        @media (max-width: 600px) {
+            .hero-content {
+                max-width:98vw;
+            }
+        }
+
+        /* Media query to reset layout for screens wider than 600px */
+        @media (min-width: 601px) {
+            .hero-content {
+                max-width: 50vw;
+            }
+        }
     </style>
 </head>
 <body>
